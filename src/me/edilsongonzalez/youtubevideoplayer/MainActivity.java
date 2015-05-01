@@ -1,16 +1,45 @@
 package me.edilsongonzalez.youtubevideoplayer;
 
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+	// Components
+	private Button btnPlayVideo;
+	private Button btnPlayPlaylist;
+	
+	private void initComponents() {
+		this.btnPlayVideo = (Button) findViewById(R.id.play_video_btn);
+		this.btnPlayVideo.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				btnPlayVideoClicked(v);
+			}
+		});
+		this.btnPlayPlaylist = (Button) findViewById(R.id.play_playlist_btn);
+		this.btnPlayPlaylist.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				btnPlayPlaylistClicked(v);
+			}
+		});
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		initComponents();
 	}
 
 	@Override
@@ -30,5 +59,15 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void btnPlayVideoClicked(View v) {
+		Intent intent = YouTubeStandalonePlayer.createVideoIntent(this, ParametersAndVariables.YOUTUBE_API_KEY, ParametersAndVariables.TEST_YOUTUBE_VIDEO_ID);
+		startActivityForResult(intent, 0);
+	}
+	
+	public void btnPlayPlaylistClicked(View v) {
+		Intent intent = YouTubeStandalonePlayer.createPlaylistIntent(this, ParametersAndVariables.YOUTUBE_API_KEY, ParametersAndVariables.TEST_YOUTUBE_PLAYLIST_ID);
+		startActivityForResult(intent, 0);
 	}
 }

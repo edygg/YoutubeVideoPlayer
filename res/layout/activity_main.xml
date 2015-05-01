@@ -8,9 +8,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.edilsongonzalez.youtubevideoplayer.MainActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/play_video_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/play_video" />
+
+    <Button
+        android:id="@+id/play_playlist_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/play_video_btn"
+        android:layout_below="@+id/play_video_btn"
+        android:layout_marginTop="22dp"
+        android:text="@string/play_playlist" />
 
 </RelativeLayout>

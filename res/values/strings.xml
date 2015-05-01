@@ -4,5 +4,8 @@
     <string name="app_name">Youtube Video Player</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="youtube_menu">Youtube Menu</string>
+    <string name="play_video">Play video</string>
+    <string name="play_playlist">Play playlist</string>
 
 </resources>
